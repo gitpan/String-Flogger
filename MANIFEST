@@ -1,0 +1,8 @@
+Changes
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+lib/String/Flogger.pm
+t/synopsis.t

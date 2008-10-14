@@ -1,0 +1,13 @@
+--- 
+abstract: string munging for loggers
+author: 
+  - Ricardo SIGNES <rjbs@cpan.org>
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.002
+license: perl
+name: String-Flogger
+requires: 
+  JSON: 0
+  Params::Util: 0
+  Scalar::Util: 0
+  Sub::Exporter: 0
+version: 1.000

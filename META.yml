@@ -6,8 +6,8 @@ generated_by: Dist::Zilla::Plugin::MetaYaml version 1.002
 license: perl
 name: String-Flogger
 requires: 
-  JSON: 0
+  JSON: 2
   Params::Util: 0
   Scalar::Util: 0
   Sub::Exporter: 0
-version: 1.000
+version: 1.001

@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package String::Flogger;
-our $VERSION = '1.000';
+our $VERSION = '1.001';
 
 # ABSTRACT: string munging for loggers
 
@@ -65,7 +65,7 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.000
+version 1.001
 
 =head1 SYNOPSIS
 

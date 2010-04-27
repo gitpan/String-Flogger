@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package String::Flogger;
-our $VERSION = '1.001';
-
+BEGIN {
+  $String::Flogger::VERSION = '1.101170';
+}
 # ABSTRACT: string munging for loggers
 
 use Params::Util qw(_ARRAYLIKE _CODELIKE);
@@ -56,7 +57,6 @@ sub flog {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -65,37 +65,37 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.001
+version 1.101170
 
 =head1 SYNOPSIS
 
-    use String::Flogger qw(flog);
+  use String::Flogger qw(flog);
 
-    my @inputs = (
-      'simple!',
+  my @inputs = (
+    'simple!',
 
-      [ 'slightly %s complex', 'more' ],
+    [ 'slightly %s complex', 'more' ],
 
-      [ 'and inline some data: %s', { look => 'data!' } ],
+    [ 'and inline some data: %s', { look => 'data!' } ],
 
-      [ 'and we can defer evaluation of %s if we want', sub { 'stuff' } ],
+    [ 'and we can defer evaluation of %s if we want', sub { 'stuff' } ],
 
-      sub { 'while avoiding sprintfiness, if needed' },
-    );
+    sub { 'while avoiding sprintfiness, if needed' },
+  );
 
-    say flog($_) for @inputs;
+  say flog($_) for @inputs;
 
 The above will output:
 
-    simple!
+  simple!
 
-    slightly more complex
+  slightly more complex
 
-    and inline some data: {{{ "look": "data!" }}}
+  and inline some data: {{{ "look": "data!" }}}
 
-    and we can defer evaluation of %s if we want
+  and we can defer evaluation of stuff if we want
 
-    while avoiding sprintfiness, if needed
+  while avoiding sprintfiness, if needed
 
 =head1 AUTHOR
 
@@ -103,11 +103,10 @@ The above will output:
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2008 by Ricardo SIGNES <rjbs@cpan.org>.
+This software is copyright (c) 2010 by Ricardo SIGNES <rjbs@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package String::Flogger;
 BEGIN {
-  $String::Flogger::VERSION = '1.101170';
+  $String::Flogger::VERSION = '1.101240';
 }
 # ABSTRACT: string munging for loggers
 
@@ -14,8 +14,10 @@ use Sub::Exporter -setup => [ flog => Sub::Exporter::Util::curry_method ];
 
 sub _encrefs {
   my ($self, $messages) = @_;
-  return map { ref $_ ? ('{{' . $self->_stringify_ref($_) . '}}') : $_ }
-         map { blessed($_) ? sprintf('obj(%s)', "$_") : $_ }
+  return map { blessed($_) ? sprintf('obj(%s)', "$_")
+             : ref $_      ? $self->_stringify_ref($_)
+             : defined $_  ? $_
+             :              '{{null}}' }
          map { _CODELIKE($_) ? scalar $_->() : $_ }
          @$messages;
 }
@@ -23,6 +25,11 @@ sub _encrefs {
 my $JSON;
 sub _stringify_ref {
   my ($self, $ref) = @_;
+
+  if (ref $ref eq 'SCALAR' or ref $ref eq 'REF') {
+    my ($str) = $self->_encrefs([ $$ref ]);
+    return "ref($str)";
+  }
 
   require JSON;
   $JSON ||= JSON->new
@@ -32,7 +39,7 @@ sub _stringify_ref {
                 ->space_after(1)
                 ->convert_blessed(1);
 
-  return $JSON->encode($ref)
+  return '{{' . $JSON->encode($ref) . '}}'
 }
 
 sub flog {
@@ -65,7 +72,7 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.101170
+version 1.101240
 
 =head1 SYNOPSIS
 

@@ -7,5 +7,6 @@ Makefile.PL
 README
 dist.ini
 lib/String/Flogger.pm
+t/basic.t
 t/release-pod-syntax.t
 t/synopsis.t

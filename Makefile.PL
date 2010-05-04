@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'string munging for loggers',
                        'EXE_FILES' => [],
-                       'VERSION' => '1.101170',
+                       'VERSION' => '1.101240',
                        'PREREQ_PM' => {
                                         'Sub::Exporter::Util' => '0',
                                         'Scalar::Util' => '0',

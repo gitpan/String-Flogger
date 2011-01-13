@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package String::Flogger;
 BEGIN {
-  $String::Flogger::VERSION = '1.101240';
+  $String::Flogger::VERSION = '1.101241';
 }
 # ABSTRACT: string munging for loggers
 
@@ -55,10 +55,15 @@ sub flog {
 
   if (_ARRAYLIKE($input)) {
     my ($fmt, @data) = @$input;
-    return sprintf $fmt, $class->_encrefs(\@data);
+    return $class->format_string($fmt, $class->_encrefs(\@data));
   }
 
   return $class->_encrefs([ $input ]);
+}
+
+sub format_string {
+  my ($self, $fmt, @input) = @_;
+  sprintf $fmt, @input;
 }
 
 1;
@@ -72,7 +77,7 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.101240
+version 1.101241
 
 =head1 SYNOPSIS
 
@@ -104,13 +109,27 @@ The above will output:
 
   while avoiding sprintfiness, if needed
 
+=head1 METHODS
+
+=head2 flag
+
+This method is described in the synopsis.
+
+=head2 format_string
+
+  $flogger->format_string($fmt, \@input);
+
+This method is used to take the formatted arguments for a format string (when
+C<flog> is passed an arrayref) and turn it into a string.  By default, it just
+uses C<L<perlfunc/sprintf>>.
+
 =head1 AUTHOR
 
-  Ricardo SIGNES <rjbs@cpan.org>
+Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Ricardo SIGNES <rjbs@cpan.org>.
+This software is copyright (c) 2011 by Ricardo SIGNES <rjbs@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

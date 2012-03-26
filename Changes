@@ -1,5 +1,9 @@
 Revision history for String-Flogger
 
+1.101242  2012-03-26 08:20:22 America/New_York
+          make ->flog({...}) act like ->flog([ '%s', {...} ])
+          (thanks, Randy Stauner)
+
 1.101241  2011-01-13 12:31:38 America/New_York
           add format_string method for subclassing
 

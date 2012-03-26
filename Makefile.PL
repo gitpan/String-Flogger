@@ -4,33 +4,35 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'string munging for loggers',
-  'AUTHOR' => 'Ricardo SIGNES <rjbs@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'Test::More' => '0.96'
+  "ABSTRACT" => "string munging for loggers",
+  "AUTHOR" => "Ricardo SIGNES <rjbs\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "Test::More" => "0.96"
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'String-Flogger',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'String::Flogger',
-  'PREREQ_PM' => {
-    'JSON' => '0',
-    'Params::Util' => '0',
-    'Scalar::Util' => '0',
-    'Sub::Exporter' => '0',
-    'Sub::Exporter::Util' => '0'
+  "DISTNAME" => "String-Flogger",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "String::Flogger",
+  "PREREQ_PM" => {
+    "JSON" => 0,
+    "Params::Util" => 0,
+    "Scalar::Util" => 0,
+    "Sub::Exporter" => 0,
+    "Sub::Exporter::Util" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '1.101241',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "1.101242",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 package String::Flogger;
-BEGIN {
-  $String::Flogger::VERSION = '1.101241';
+{
+  $String::Flogger::VERSION = '1.101242';
 }
 # ABSTRACT: string munging for loggers
 
@@ -58,7 +58,7 @@ sub flog {
     return $class->format_string($fmt, $class->_encrefs(\@data));
   }
 
-  return $class->_encrefs([ $input ]);
+  return $class->format_string('%s', $class->_encrefs([$input]));
 }
 
 sub format_string {
@@ -77,7 +77,7 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.101241
+version 1.101242
 
 =head1 SYNOPSIS
 
@@ -111,7 +111,7 @@ The above will output:
 
 =head1 METHODS
 
-=head2 flag
+=head2 flog
 
 This method is described in the synopsis.
 
@@ -129,7 +129,7 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Ricardo SIGNES <rjbs@cpan.org>.
+This software is copyright (c) 2012 by Ricardo SIGNES <rjbs@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,11 +1,11 @@
 
 
 This archive contains the distribution String-Flogger,
-version 1.101242:
+version 1.101243:
 
   string munging for loggers
 
-This software is copyright (c) 2012 by Ricardo SIGNES <rjbs@cpan.org>.
+This software is copyright (c) 2013 by Ricardo SIGNES <rjbs@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

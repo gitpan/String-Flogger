@@ -12,6 +12,8 @@ my %WriteMakefileArgs = (
   "ABSTRACT" => "string munging for loggers",
   "AUTHOR" => "Ricardo SIGNES <rjbs\@cpan.org>",
   "BUILD_REQUIRES" => {
+    "File::Find" => 0,
+    "File::Temp" => 0,
     "Test::More" => "0.96"
   },
   "CONFIGURE_REQUIRES" => {
@@ -30,7 +32,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "1.101242",
+  "VERSION" => "1.101243",
   "test" => {
     "TESTS" => "t/*.t"
   }

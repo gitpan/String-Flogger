@@ -2,7 +2,7 @@ use strict;
 use warnings;
 package String::Flogger;
 {
-  $String::Flogger::VERSION = '1.101242';
+  $String::Flogger::VERSION = '1.101243';
 }
 # ABSTRACT: string munging for loggers
 
@@ -39,6 +39,11 @@ sub _stringify_ref {
                 ->space_after(1)
                 ->convert_blessed(1);
 
+  # This is horrible.  Just horrible.  I wish I could do this with a callback
+  # passed to JSON: https://rt.cpan.org/Ticket/Display.html?id=54321
+  # -- rjbs, 2013-01-31
+  local *UNIVERSAL::TO_JSON = sub { "obj($_[0])" };
+
   return '{{' . $JSON->encode($ref) . '}}'
 }
 
@@ -69,6 +74,7 @@ sub format_string {
 1;
 
 __END__
+
 =pod
 
 =head1 NAME
@@ -77,7 +83,7 @@ String::Flogger - string munging for loggers
 
 =head1 VERSION
 
-version 1.101242
+version 1.101243
 
 =head1 SYNOPSIS
 
@@ -129,10 +135,9 @@ Ricardo SIGNES <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Ricardo SIGNES <rjbs@cpan.org>.
+This software is copyright (c) 2013 by Ricardo SIGNES <rjbs@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

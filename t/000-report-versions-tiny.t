@@ -48,11 +48,8 @@ sub pmver {
     return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
-eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
-eval { $v .= pmver('File::Spec','any version') };
-eval { $v .= pmver('IO::Handle','any version') };
-eval { $v .= pmver('IPC::Open3','any version') };
-eval { $v .= pmver('JSON','any version') };
+eval { $v .= pmver('ExtUtils::MakeMaker','any version') };
+eval { $v .= pmver('JSON::MaybeXS','any version') };
 eval { $v .= pmver('Params::Util','any version') };
 eval { $v .= pmver('Scalar::Util','any version') };
 eval { $v .= pmver('Sub::Exporter','any version') };
